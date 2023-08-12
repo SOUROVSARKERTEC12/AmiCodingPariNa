@@ -1,0 +1,18 @@
+{% extends 'khoj/base.html' %}
+
+{% block content %}
+    <h2>Khoj the Search</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="input_values">Input Values:</label>
+        <input type="text" name="input_values" id="input_values">
+        <br>
+        <label for="search_value">Search Value:</label>
+        <input type="text" name="search_value" id="search_value">
+        <br>
+        <input type="submit" value="Khoj">
+    </form>
+    {% if result is not None %}
+        <p>Result: {% if result %}True{% else %}False{% endif %}</p>
+    {% endif %}
+{% endblock %}
